@@ -2,7 +2,7 @@
 
 import re
 
-pattern= r'^[0-9]+[Ee][+\-]?[0-9]'
+pattern= r'^\-[0-9]+[Ee][+\-]?[0-9]'
 
 input=input("Enter exponent number : ")
 
