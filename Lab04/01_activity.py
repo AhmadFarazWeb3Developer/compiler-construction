@@ -14,6 +14,8 @@ buffer_size = 8
 def lexical_analyzer(source_code):
   
     tokens = [] 
+    
+    
    # 'i' starts at 0 → first buffer is source_code[0:8]
    # next iteration, 'i' = 8 → next buffer is source_code[8:16]
    # then 'i' = 16 → next buffer is source_code[16:24], and so on
