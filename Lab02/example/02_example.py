@@ -9,3 +9,5 @@ if re.match(pattern,password):
     
 else:    
     print("Password does'nt belongs to pattern")
+
+
