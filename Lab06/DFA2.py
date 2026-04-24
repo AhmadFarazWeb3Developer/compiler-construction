@@ -3,7 +3,7 @@
 state = 'q0'
 input_string = input("Enter variable name: ")
 
-for char in input_string:
+for char in input_string: 
     
     if state == 'q0':
         if char.isalpha() or char == '_': # islalpha() used for characters are letter or not 
