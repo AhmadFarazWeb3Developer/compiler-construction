@@ -1,6 +1,5 @@
 import re
 
-# Token patterns
 token_specification = [
     ('KEYWORD',   r'\b(int|float|char)\b'),
     ('IDENTIFIER',r'\b[a-zA-Z_][a-zA-Z0-9_]*\b'),
@@ -11,10 +10,8 @@ token_specification = [
     ('MISMATCH',  r'.')
 ]
 
-# Combine regex
 tok_regex = '|'.join(f'(?P<{name}>{pattern})' for name, pattern in token_specification)
 
-# Symbol table
 symbol_table = {}
 memory_address = 1000
 
@@ -35,7 +32,6 @@ def lexical_analyzer(code):
         elif kind == 'IDENTIFIER':
             tokens.append((kind, value))
 
-            # Add to symbol table if declaration
             if current_type:
                 if value not in symbol_table:
                     symbol_table[value] = {
@@ -54,7 +50,6 @@ def lexical_analyzer(code):
         elif kind == 'DELIMITER':
             tokens.append((kind, value))
 
-            # Reset type after ';'
             if value == ';':
                 current_type = None
 
@@ -75,8 +70,6 @@ def handle_assignments(code):
             symbol_table[var]['value'] = int(val)
 
 
-# ----------- MAIN -----------
-
 code = """
 int a, b;
 float x;
@@ -88,12 +81,10 @@ x = 5;
 tokens = lexical_analyzer(code)
 handle_assignments(code)
 
-# Display Tokens
 print("Tokens:")
 for t in tokens:
     print(t)
 
-# Display Symbol Table
 print("\nSymbol Table:")
 print("Name\tType\tMemory\tValue")
 
